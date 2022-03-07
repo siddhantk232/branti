@@ -42,3 +42,11 @@
 <!-- * Deployment instructions -->
 
 <!-- * ... -->
+
+#### TODO
+
+  - [ ] check frontend assets
+  - [ ] authentication with email/password and google
+  - [ ] music upload
+  - [ ] serve/stream music
+
