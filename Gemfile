@@ -57,6 +57,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "pry-rails", "~> 0.3.9"
+  gem "annotate", "~> 3.2"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -78,4 +79,3 @@ gem "devise", "~> 4.8"
 
 gem "omniauth-google-oauth2", "~> 1.0"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
-
