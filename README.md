@@ -45,8 +45,8 @@
 
 #### TODO
 
-  - [ ] check frontend assets
-  - [ ] authentication with email/password and google
+  - [x] check frontend assets
+  - [x] authentication with email/password and google
   - [ ] music upload
   - [ ] serve/stream music
 
