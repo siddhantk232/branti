@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, 
+             controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  devise_scope :user do
+    # fixes redirect on error in form submission on new_user_registration_path
+    get '/users', to: 'devise/registrations#new'
+  end
 
   # Defines the root path route ("/")
   root "music#index"
-
-  devise_scope :user do
-    get '/users', to: 'devise/registrations#new'
-  end
 end
