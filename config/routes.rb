@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "music#index"
+
+  devise_scope :user do
+    get '/users', to: 'devise/registrations#new'
+  end
 end
