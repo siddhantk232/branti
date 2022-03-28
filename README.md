@@ -47,6 +47,8 @@
 
   - [x] check frontend assets
   - [x] authentication with email/password and google
+  - [ ] add avatar to User
+  - [ ] implement file upload (music and images)
   - [ ] music upload
   - [ ] serve/stream music
 

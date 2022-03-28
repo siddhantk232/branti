@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: genres
+#
+#  id          :bigint           not null, primary key
+#  color       :string           not null
+#  cover_image :text             not null
+#  title       :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  title: MyString
+  color: MyString
+  cover_image: MyText
+
+two:
+  title: MyString
+  color: MyString
+  cover_image: MyText
