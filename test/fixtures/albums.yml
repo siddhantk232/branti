@@ -20,11 +20,14 @@
 #
 
 one:
-  name: MyString
+  name: Album 1
   cover_image: MyText
   color: MyString
+  artist_id: 1
 
 two:
   name: MyString
   cover_image: MyText
   color: MyString
+  artist_id: 2
+

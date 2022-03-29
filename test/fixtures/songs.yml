@@ -24,15 +24,17 @@
 #
 
 one:
-  link: MyText
-  title: MyString
-  artist: one
-  color: MyString
-  cover_image: MyText
+  link: example.com/music.webm
+  title: Monstercat top 10
+  artist_id: 1
+  album: one
+  color: f4f4f4ff
+  cover_image: example.com/music.webm
 
 two:
-  link: MyText
-  title: MyString
-  artist: two
-  color: MyString
-  cover_image: MyText
+  link: example.com/music.webm
+  title: NCS top 20
+  artist_id: 2
+  album: two
+  color: f4f4f4ff
+  cover_image: example.com/music.webm
