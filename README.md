@@ -1,5 +1,6 @@
 # BRANTI
 
+- [Figma designs](https://www.figma.com/file/xFZdSZWxf3ch9FFZs8uUsh/BRANTI)
 
 <!-- This README would normally document whatever steps are necessary to get the -->
 <!-- application up and running. -->
