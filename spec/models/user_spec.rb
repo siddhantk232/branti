@@ -23,11 +23,7 @@ require "rails_helper"
 
 RSpec.describe User do
   describe "validations" do
-    let(:user) do
-      described_class.new(name: "user name", 
-                          email: "test@test.com",
-                          password: "passwd")
-    end
+    let(:user) { build(:user) }
 
     it "should fail if name is nil" do
       expect(user).to be_valid
@@ -55,10 +51,5 @@ RSpec.describe User do
       user.email = "123"
       expect(user).not_to be_valid
     end
-  end
-
-  describe "associations" do
-    it "should have many songs"
-    it "should have many albums"
   end
 end
