@@ -18,9 +18,8 @@
 #
 #  fk_rails_...  (artist_id => users.id)
 #
-class Album < ApplicationRecord
-  validates_presence_of :color, :name, :cover_image
+require 'rails_helper'
 
-  belongs_to :artist, class_name: 'User'
-  has_many   :songs
+RSpec.describe Album, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

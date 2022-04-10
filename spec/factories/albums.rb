@@ -18,9 +18,11 @@
 #
 #  fk_rails_...  (artist_id => users.id)
 #
-class Album < ApplicationRecord
-  validates_presence_of :color, :name, :cover_image
-
-  belongs_to :artist, class_name: 'User'
-  has_many   :songs
+FactoryBot.define do
+  factory :album do
+    color          { '#000000' }
+    cover_image    { 'example.com/imagex300.png' }
+    name           { 'test album' }
+    artist         factory: :user
+  end
 end
