@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get '/users', to: 'devise/registrations#new'
   end
 
+  resources :music, only: [ :index ]
+
   # Defines the root path route ("/")
   root "music#index"
 end
