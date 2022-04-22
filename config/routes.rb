@@ -9,7 +9,5 @@ Rails.application.routes.draw do
   end
 
   resources :music, only: [ :index ]
-
-  # Defines the root path route ("/")
   root "music#index"
 end
