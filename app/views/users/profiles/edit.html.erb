@@ -1,0 +1,15 @@
+Welcome <%= current_user.name %>
+
+<hr />
+
+<img src="<%= current_user.avatar_url %>" height="300" />
+
+<hr />
+
+<form action="/users/profile/<%= current_user.id %>/edit" method="post" enctype="multipart/form-data">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input name="profile[avatar]" type="hidden" value="<%= current_user.cached_avatar_data %>" />
+  <input name="profile[avatar]"type="file" />
+  <input type="submit" value="Change Profile Picture" />
+</form>
+
