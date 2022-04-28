@@ -1,23 +1,23 @@
-<div class="top-navbar">
-  <div class="search-box">
-    <i class="fas fa-search" id="search-icon" title="search"></i>
-    <input
-      type="search"
-      placeholder="Search"
-      class="search barlow-font"
-      id="search"
-    />
-  </div>
-  <div class="sign-up">
-    <%# <a href="#" class="button barlow-font">Sign Up</a> %>
-    <% if user_signed_in? %>
-      <p>Welcome <%= current_user.name %></p>
-    <% end %>
-    <% if user_signed_in? %>
-        <%= link_to "Sign out", destroy_user_session_path, class: "button barlow-font" %>
-    <% else %>
-        <%= link_to "Sign in", new_user_session_path, class: "button barlow-font" %>
-    <% end %>
-  </div>
-</div>
+<%# <div class="top-navbar"> %>
+<%#   <div class="search-box"> %>
+<%#     <i class="fas fa-search" id="search-icon" title="search"></i> %>
+<%#     <input %>
+<%#       type="search" %>
+<%#       placeholder="Search" %>
+<%#       class="search barlow-font" %>
+<%#       id="search" %>
+<%#     /> %>
+<%#   </div> %>
+<%#   <div class="sign-up"> %>
+<%#     <%1# <a href="#" class="button barlow-font">Sign Up</a> %1> %>
+<%#     <% if user_signed_in? %1> %>
+<%#       <p>Welcome <%= current_user.name %1></p> %>
+<%#     <% end %1> %>
+<%#     <% if user_signed_in? %1> %>
+<%#         <%= link_to "Sign out", destroy_user_session_path, class: "button barlow-font" %1> %>
+<%#     <% else %1> %>
+<%#         <%= link_to "Sign in", new_user_session_path, class: "button barlow-font" %1> %>
+<%#     <% end %1> %>
+<%#   </div> %>
+<%# </div> %>
 
