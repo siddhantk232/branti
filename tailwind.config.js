@@ -1,14 +1,18 @@
 module.exports = {
   content: [
-    './app/views/**/*.html.erb',
-    './app/helpers/**/*.rb',
-    './app/assets/stylesheets/**/*.css',
-    './app/javascript/**/*.js'
+    "./app/views/**/*.html.erb",
+    "./app/helpers/**/*.rb",
+    "./app/assets/stylesheets/**/*.css",
+    "./app/javascript/**/*.js",
   ],
   theme: {
     colors: {
-      accent: '#EE6C4D',
-      dark: '#212121',
-    }
-  }
-}
+      accent: "#EE6C4D",
+      dark: "#212121",
+    },
+    fontFamily: {
+      rowdies: ["Rowdies", "cursive"],
+      montsterrat: ["Montserrat", "sans-serif"],
+    },
+  },
+};

@@ -7,19 +7,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="h-screen relative overflow-hidden">
+  <body class="h-screen relative overflow-hidden font-montsterrat">
     <%# TODO: <%= flash[:notice] if flash[:notice] %1> %>
     <aside id="sidebar" class="bg-dark h-full">
       <div class="py-4 px-6">
@@ -31,7 +28,7 @@
             <ellipse cx="50.9999" cy="39.6951" rx="13.6667" ry="15.5" fill="#C4C4C4"/>
           </svg>
           <span class="mx-1"></span>
-          <h2 class="text-accent text-4xl font-bold">BRANTI</h2>
+          <h2 class="text-accent text-4xl font-rowdies font-bold">BRANTI</h2>
           </div>
         </a>
       </div>
