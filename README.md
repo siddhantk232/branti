@@ -50,6 +50,6 @@
   - [x] authentication with email/password and google
   - [x] add avatar to User
   - [x] implement file upload (music and images)
-  - [ ] music upload
+  - [x] music upload
   - [ ] serve/stream music
 
