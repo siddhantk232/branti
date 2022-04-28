@@ -20,7 +20,12 @@
   </head>
 
   <body>
-    <%= flash[:notice] if flash[:notice] %>
-    <%= yield %>
+    <%# TODO: <%= flash[:notice] if flash[:notice] %1> %>
+    <aside id="sidebar">
+    </aside>
+    <main>
+      <%= render "layouts/header" %>
+      <%= yield %>
+    </main>
   </body>
 </html>
