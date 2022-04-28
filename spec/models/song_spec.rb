@@ -2,15 +2,15 @@
 #
 # Table name: songs
 #
-#  id          :bigint           not null, primary key
-#  color       :string           not null
-#  cover_image :text             not null
-#  link        :text             not null
-#  title       :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  album_id    :bigint           not null
-#  artist_id   :bigint           not null
+#  id               :bigint           not null, primary key
+#  color            :string           not null
+#  cover_image_data :text
+#  music_file_data  :text             not null
+#  title            :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  album_id         :bigint
+#  artist_id        :bigint           not null
 #
 # Indexes
 #

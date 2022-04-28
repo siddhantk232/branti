@@ -1,0 +1,29 @@
+<% if @song.errors.any? %>
+  <%= @song.errors.full_messages.to_sentence.capitalize %>
+<% end %>
+
+
+<%= form_for(@song, url: music_index_path) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <br />
+
+  <%= f.label :cover_image %>
+  <%= f.file_field :cover_image %>
+
+  <br />
+
+  <%= f.label :music_file %>
+  <%= f.file_field :music_file %>
+
+  <br />
+
+  <%= f.label :color %>
+  <%= f.color_field :color %>
+
+  <br />
+  <br />
+
+  <%= f.submit "Submit" %>
+<% end %>

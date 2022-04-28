@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_28_113852) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_25_171427) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
     t.string "name", null: false
-    t.text "cover_image", null: false
+    t.text "cover_image_data"
     t.string "color", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_113852) do
   create_table "genres", force: :cascade do |t|
     t.string "title", null: false
     t.string "color", null: false
-    t.text "cover_image", null: false
+    t.text "cover_image_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,10 +41,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_113852) do
 
   create_table "playlists", force: :cascade do |t|
     t.string "name", null: false
-    t.text "cover_image", null: false
+    t.text "cover_image_data"
     t.string "color", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
   create_table "playlists_songs", id: false, force: :cascade do |t|
@@ -55,14 +57,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_113852) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.text "link", null: false
+    t.text "music_file_data", null: false
     t.string "title", null: false
     t.bigint "artist_id", null: false
     t.string "color", null: false
-    t.text "cover_image", null: false
+    t.text "cover_image_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "album_id", null: false
+    t.bigint "album_id"
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
@@ -78,11 +80,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_113852) do
     t.string "name", null: false
     t.string "provider"
     t.string "uid"
+    t.jsonb "avatar_data"
+    t.index ["avatar_data"], name: "index_users_on_avatar_data", using: :gin
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "albums", "users", column: "artist_id"
+  add_foreign_key "playlists", "users"
   add_foreign_key "songs", "albums"
   add_foreign_key "songs", "users", column: "artist_id"
 end

@@ -1,0 +1,12 @@
+<%= form_for playlist do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :color %>
+  <%= f.color_field :color %>
+
+  <%= f.label :cover_image %>
+  <%= f.file_field :cover_image %>
+
+  <%= f.submit "Create" %>
+<% end %>

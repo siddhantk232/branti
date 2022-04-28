@@ -2,13 +2,13 @@
 #
 # Table name: albums
 #
-#  id          :bigint           not null, primary key
-#  color       :string           not null
-#  cover_image :text             not null
-#  name        :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  artist_id   :bigint           not null
+#  id               :bigint           not null, primary key
+#  color            :string           not null
+#  cover_image_data :text
+#  name             :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  artist_id        :bigint           not null
 #
 # Indexes
 #
@@ -19,8 +19,10 @@
 #  fk_rails_...  (artist_id => users.id)
 #
 class Album < ApplicationRecord
-  validates_presence_of :color, :name, :cover_image
+  validates_presence_of :color, :name
 
   belongs_to :artist, class_name: 'User'
   has_many   :songs
+
+  include CoverImage
 end

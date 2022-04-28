@@ -2,15 +2,15 @@
 #
 # Table name: songs
 #
-#  id          :bigint           not null, primary key
-#  color       :string           not null
-#  cover_image :text             not null
-#  link        :text             not null
-#  title       :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  album_id    :bigint           not null
-#  artist_id   :bigint           not null
+#  id               :bigint           not null, primary key
+#  color            :string           not null
+#  cover_image_data :text
+#  music_file_data  :text             not null
+#  title            :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  album_id         :bigint
+#  artist_id        :bigint           not null
 #
 # Indexes
 #
@@ -23,11 +23,14 @@
 #  fk_rails_...  (artist_id => users.id)
 #
 class Song < ApplicationRecord
-  validates_presence_of :color, :title, :link, :cover_image
+  validates_presence_of :color, :title, :music_file, :cover_image
 
   belongs_to :artist, class_name: "User"
-  belongs_to :album
+  belongs_to :album, optional: true
 
   has_and_belongs_to_many :playlists
   has_and_belongs_to_many :genres
+
+  include CoverImage
+  include SongUploader::Attachment(:music_file)
 end
