@@ -4,3 +4,10 @@
 
 /* @import url("https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap"); */
 /* @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap'); */
+
+body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  background-color: #000;
+  color: #fff;
+}
