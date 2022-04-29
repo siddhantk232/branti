@@ -1,0 +1,38 @@
+<aside id="sidebar" class="py-4 px-6 bg-dark h-full">
+  <div class="mb-6">
+    <a href="<%= root_path %>">
+      <div class="flex flex-row items-center">
+      <svg width="66" height="62" viewBox="0 0 66 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="13.6667" cy="15.5" rx="13.6667" ry="15.5" fill="#C4C4C4"/>
+        <path d="M30.6711 51.1339L14.9383 26.6965C11.5109 21.3727 15.3332 14.366 21.6649 14.366H51.9333C58.138 14.366 61.9808 21.123 58.8089 26.4557L44.2732 50.8931C41.2356 56 33.8876 56.1301 30.6711 51.1339Z" stroke="#EE6C4D"/>
+        <ellipse cx="50.9999" cy="39.6951" rx="13.6667" ry="15.5" fill="#C4C4C4"/>
+      </svg>
+      <span class="mx-1"></span>
+      <h2 class="text-accent-400 text-4xl font-rowdies font-bold">BRANTI</h2>
+      </div>
+    </a>
+  </div>
+  <div class="mb-6">
+    <ul>
+      <li><%= link_to "Albums", albums_path %></li>
+      <li><%= link_to "Liked Song", "/playlists/likes" %></li>
+    </ul>
+  </div>
+  <div>
+    <h4 class="mb-3 font-rowdies text-3xl text-accent-400 font-bold">Playlists</h4>
+
+    <% unless current_user.playlists.present? %>
+      <div class="flex flex-col justify-center">
+      <p class="text-grey-50">
+        You have no playlists.
+      </p>
+      <button class="mt-4 py-2 px-3 bg-accent-200 rounded-md hover:scale-95 transition-transform">Create Playlist</button>
+    <% else %>
+      <ul>
+        <%= current_user.playlists.each do |playlist| %>
+          <li><%= link_to playlist.name playlist_path(playlist) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</aside>
