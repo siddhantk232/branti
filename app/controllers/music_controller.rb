@@ -1,6 +1,10 @@
 class MusicController < ApplicationController
   before_action :authenticate_user!, only: %i[ new create ]
+
   def index
+    @songs = Song.latest
+    @playlists = current_user.playlists
+    @genres = Genre.all
   end
 
   def new

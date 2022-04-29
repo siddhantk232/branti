@@ -11,3 +11,43 @@ body {
   background-color: #000;
   color: #fff;
 }
+
+.scrollable {
+  overflow-x: auto;
+  max-width: 79vw;
+}
+
+.bar::-webkit-scrollbar {
+  width: 0.75em;
+}
+ 
+.bar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.bar::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.gradient {
+  background: linear-gradient(180deg, var(--gradient-from-color) 0%, var(--gradient-to-color) 100%);
+}
+
+@media only screen and (max-width: 1440px) {
+  .scrollable {
+    max-width: 76vw;
+  }
+}
+
+@media only screen and (max-width: 1270px) {
+  .scrollable {
+    max-width: 69vw;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .scrollable {
+    max-width: 50vw;
+  }
+}
