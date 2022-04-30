@@ -3,7 +3,7 @@ class MusicController < ApplicationController
 
   def index
     @songs = Song.latest
-    @playlists = current_user&.playlists || []
+    @playlists = current_user&.playlists.where.not(id: nil) || []
     @genres = Genre.all
   end
 

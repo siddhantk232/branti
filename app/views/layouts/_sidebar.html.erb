@@ -21,7 +21,7 @@
   <div>
     <h4 class="mb-3 font-rowdies text-3xl text-accent-400 font-bold">Playlists</h4>
 
-    <% unless current_user&.playlists.present? %>
+    <% unless current_user&.playlists.where.not(id: nil).present? %>
       <div class="flex flex-col justify-center">
       <p class="text-grey-50">
         You have no playlists.
@@ -30,7 +30,7 @@
     <% else %>
       <ul>
         <%= current_user.playlists.each do |playlist| %>
-          <li><%= link_to playlist.name playlist_path(playlist) %></li>
+          <li><%= link_to playlist.name, "/"  %></li>
         <% end %>
       </ul>
     <% end %>
