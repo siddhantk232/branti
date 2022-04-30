@@ -34,6 +34,47 @@ body {
   background: linear-gradient(180deg, var(--gradient-from-color) 0%, var(--gradient-to-color) 100%);
 }
 
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      -webkit-appearance: none;
+      background-color: white;
+      height: 4px;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: #ee6c4d;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #c9563c;
+      box-shadow: -80px 0 0 80px #ee6c4d;
+    }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #ee6c4d; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: white;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #ee6c4d; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: white;
+}
+
 @media only screen and (max-width: 1440px) {
   .scrollable {
     max-width: 76vw;
