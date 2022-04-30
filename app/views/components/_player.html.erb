@@ -1,4 +1,4 @@
-<% if true %>
+<% if current_page?(root_path) %>
   <section data-controller="player" class="fixed bottom-0 left-0 w-screen bg-dark drop-shadow-lg">
     <video data-action="timeupdate->player#setTime durationchange->player#setDuration" data-player-target="video" class="hidden" src="<%= @songs[0].music_file_url %>"></video>
     <div data-player-target="seekerParent" data-action="click->player#seek" class="range bg-gray-600 bg-[#303030] w-full h-1 cursor-pointer">
@@ -42,5 +42,4 @@
     </div>
     </div>
   </section>
-<% else %>
 <% end %>
