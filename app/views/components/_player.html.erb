@@ -1,17 +1,16 @@
-<% if current_page?(root_path) %>
   <%= turbo_frame_tag "video" do %>
     <section data-controller="player" class="fixed bottom-0 left-0 w-screen bg-dark drop-shadow-lg">
-        <video data-action="timeupdate->player#setTime durationchange->player#setDuration" data-player-target="video" class="hidden" src="<%= @songs[0].music_file_url %>"></video>
+        <video data-action="timeupdate->player#setTime durationchange->player#setDuration" data-player-target="video" class="hidden" src="<%= song.music_file_url %>"></video>
         <div data-player-target="seekerParent" data-action="click->player#seek" class="range bg-gray-600 bg-[#303030] w-full h-1 cursor-pointer">
           <div data-player-target="bar" class="primary-range bg-accent-400 h-full" style="width: 0px"></div>
         </div>
         <div class="px-16 py-2">
         <div class="flex items-center justify-between">
           <div class="flex items-center">
-            <img class="object-contain mr-4 h-20 w-20" src="<%= @songs[0].cover_image_url %>" alt="">
+            <img class="object-contain mr-4 h-20 w-20" src="<%= song.cover_image_url %>" alt="">
             <div class="meta">
-              <h5 class="font-bold text-md"><%= @songs[0].title %></h5>
-              <p class="text-gray-200 text-sm"><%= @songs[0].artist.name %></p>
+              <h5 class="font-bold text-md"><%= song.title %></h5>
+              <p class="text-gray-200 text-sm"><%= song.artist.name %></p>
               <p data-player-target="timer" class="text-gray-200 text-sm"></p>
             </div>
           </div>
@@ -45,4 +44,3 @@
         </div>
     </section>
   <% end %>
-<% end %>
