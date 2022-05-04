@@ -1,29 +1,55 @@
-<% if @song.errors.any? %>
-  <%= @song.errors.full_messages.to_sentence.capitalize %>
-<% end %>
+<h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
+  Create a Song
+</h3>
+
+<div class="w-5/12">
+  <% if @song.errors.any? %>
+    <div class="w-fit p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+      <ul>
+        <% @song.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for(@song, url: music_index_path) do |f| %>
+    <%= f.label :title, class: "block my-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+    <%= f.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
 
 
-<%= form_for(@song, url: music_index_path) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+    <%= f.label :cover_image, class: "block my-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+    <%= f.file_field :cover_image, class: "p-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" %>
+    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A cover image will be shown while displaying this song.</div>
 
-  <br />
 
-  <%= f.label :cover_image %>
-  <%= f.file_field :cover_image %>
+    <%= f.label :music_file, class: "block my-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+    <%= f.file_field :music_file, class: "p-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" %>
 
-  <br />
 
-  <%= f.label :music_file %>
-  <%= f.file_field :music_file %>
+    <%= f.label :color, class: "block my-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+    <%= f.color_field :color, class: "block" %>
+    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">This color will be used to better style your music.</div>
 
-  <br />
+    <% if @albums.present? %>
+      <h5 class="my-3 font-rowdies text-2xl text-accent-400 font-bold">
+        Select an Album
+      </h5>
 
-  <%= f.label :color %>
-  <%= f.color_field :color %>
+      <%= f.label :album, class: "block my-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+      <%= f.select :album_id, @albums, {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    <% else %>
+      <h5 class="my-3 font-rowdies text-2xl text-accent-400 font-bold">
+        You don't have any album
+      </h5>
 
-  <br />
-  <br />
+      <%= link_to "Create an Album", {}, class: "block py-2 px-3 bg-accent-200 w-fit rounded-md hover:bg-accent-700" %>
+      <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Ignore it to create this song with no album.</div>
+    <% end %>
 
-  <%= f.submit "Submit" %>
-<% end %>
+    <%= f.label :genre, class: "block my-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+    <%= f.select :genre_ids, @genres, {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+
+    <%= f.submit "Submit", class: "mt-4 py-2 px-3 bg-accent-200 rounded-md hover:bg-accent-700" %>
+  <% end %>
+</div>
