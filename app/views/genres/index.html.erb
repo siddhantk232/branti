@@ -1,7 +1,25 @@
-<h1>Genres</h1>
-
-<ul>
-  <% @genres.each do |genre| %>
-    <li><%= link_to genre.title, album_path(genre) %></li>
-  <% end %>
-</ul>
+<div class="py-4 px-6 mb-6">
+  <h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
+    Genres
+  </h3>
+  <div class="flex space-x-8 scrollable bar pb-2">
+    <% @genres.each do |genre| %>
+      <div>
+        <%= button_to genre_path(genre), method: :get, class: "rounded-lg w-72 h-72", style: "background: no-repeat center/cover url(#{genre.cover_image_url});" do %>
+          <div 
+            class="h-full w-full gradient relative rounded-lg"
+            style="--gradient-from-color: <%= hex_color_to_rgba(genre.color, 0.67) %>; --gradient-to-color: <%= hex_color_to_rgba("#000000", 0.2) %>;"
+          >
+          <div class="w-full p-4 absolute bottom-0 text-lg font-medium rounded-b-lg" style="background-color: <%= genre.color %>;">
+            <p class="overflow-hidden whitespace-nowrap text-ellipsis">
+            <abbr class="no-underline border-none" style="color: <%= text_color_from_bg(genre.color) %>;" title="<%= genre.title %>">
+              <%= genre.title %>
+            </abbr>
+            </p>
+          </div>
+          </div>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,12 +1,20 @@
-<%= form_for genre do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="w-5/12">
+  <%= form_for genre do |f| %>
+    <%= f.label :title, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"%>
+    <%= f.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
 
-  <%= f.label :color %>
-  <%= f.color_field :color %>
+    <br>
 
-  <%= f.label :cover_image %>
-  <%= f.file_field :cover_image %>
+    <%= f.label :color, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"%>
+    <%= f.color_field :color %>
 
-  <%= f.submit "Create" %>
-<% end %>
+    <br>
+    <br>
+
+    <%= f.label :cover_image, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"%>
+    <%= f.file_field :cover_image, class: "p-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" %>
+    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A cover image will be shown while displaying this genre.</div>
+
+    <%= f.submit "Create Album", class: "mt-4 py-2 px-3 bg-accent-200 rounded-md hover:bg-accent-700" %>
+  <% end %>
+</div>
