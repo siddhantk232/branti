@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :users, 
              controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  devise_scope :user do
+  devise_scope :users do
     # fixes redirect on error in form submission on new_user_registration_path
     get '/users', to: 'devise/registrations#new'
     get '/users/profile', to: 'users/profiles#edit'
