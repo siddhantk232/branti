@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import PlayerController from "./player_controller.js"
 application.register("player", PlayerController)
+
+import ProfileBadgeController from "./profile_badge_controller.js"
+application.register("profile-badge", ProfileBadgeController)
