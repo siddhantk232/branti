@@ -7,6 +7,10 @@ class MusicController < ApplicationController
     @genres = Genre.all
   end
 
+  def show
+    @song = Song.find(params[:id])
+  end
+
   def new
     @song = current_user.songs.new
   end

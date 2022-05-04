@@ -8,7 +8,11 @@
   <div class="flex space-x-8 scrollable bar pb-2">
     <% @songs.each do |song| %>
       <div>
-        <div class="rounded-lg w-72 h-72" style="background: no-repeat center/cover url(<%= song.cover_image_url %>);"> 
+        <%= button_to music_path(song),
+          method: :get,
+          data: { turbo_frame: "video" },
+          class: "rounded-lg w-72 h-72",
+          style: "background: no-repeat center/cover url(#{song.cover_image_url});" do %> 
           <div 
             class="h-full w-full gradient relative rounded-lg"
             style="--gradient-from-color: <%= hex_color_to_rgba(song.color, 0.67) %>; --gradient-to-color: <%= hex_color_to_rgba("#000000", 0.2) %>;"
@@ -21,7 +25,7 @@
             </p>
           </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
@@ -34,7 +38,7 @@
   <div class="flex space-x-8 scrollable bar pb-2">
     <% @genres.each do |genre| %>
       <div>
-        <div class="rounded-lg w-72 h-72" style="background: no-repeat center/cover url(<%= genre.cover_image_url %>);"> 
+        <%= button_to genre_path(genre), method: :get, data: { turbo: false }, class: "rounded-lg w-72 h-72", style: "background: no-repeat center/cover url(#{genre.cover_image_url});" do %>
           <div 
             class="h-full w-full gradient relative rounded-lg"
             style="--gradient-from-color: <%= hex_color_to_rgba(genre.color, 0.67) %>; --gradient-to-color: <%= hex_color_to_rgba("#000000", 0.2) %>;"
@@ -47,7 +51,7 @@
             </p>
           </div>
           </div>
-        </div>
+          <% end %>
       </div>
     <% end %>
   </div>
@@ -58,7 +62,6 @@
 <br>
 
 
-
 <% if @playlists.present? %>
   <div class="py-4 px-6">
     <h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
@@ -66,4 +69,6 @@
     </h3>
   </div>
 <% end %>
+
+<%= render "components/player" %>
 

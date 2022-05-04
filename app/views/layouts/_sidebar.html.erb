@@ -1,6 +1,6 @@
 <aside id="sidebar" class="py-4 px-6 bg-dark h-full">
   <div class="mb-6">
-    <a href="<%= root_path %>">
+    <a href="<%= root_path %>" data-turbo="false" >
       <div class="flex flex-row items-center">
       <svg width="66" height="62" viewBox="0 0 66 62" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="13.6667" cy="15.5" rx="13.6667" ry="15.5" fill="#C4C4C4"/>
@@ -14,23 +14,27 @@
   </div>
   <div class="mb-6">
     <ul>
-      <li><%= link_to "Albums", albums_path %></li>
-      <li><%= link_to "Liked Song", "/playlists/likes" %></li>
+      <li><%= link_to "Albums", albums_path, class: "hover:text-accent-200" %></li>
+      <li><%= link_to "Genres", genres_path, class: "hover:text-accent-200" %></li>
+      <li><%= link_to "Liked Song", "/playlists?type=likes", class: "hover:text-accent-200" %></li>
     </ul>
   </div>
   <div>
-    <h4 class="mb-3 font-rowdies text-3xl text-accent-400 font-bold">Playlists</h4>
+    <div class="mb-3 flex justify-between items-center">
+      <h4 class="font-rowdies text-3xl text-accent-400 font-bold">Playlists</h4>
+      <%= link_to "+", new_playlist_path, class: "text-4xl py-2 px-3 text-center text-accent-400 rounded-md hover:scale-110" %>
+    </div>
 
     <% unless current_user&.playlists&.where&.not(id: nil).present? %>
       <div class="flex flex-col justify-center">
       <p class="text-grey-50">
         You have no playlists.
       </p>
-      <button class="mt-4 py-2 px-3 bg-accent-200 rounded-md hover:bg-accent-700">Create Playlist</button>
+      <%= link_to "Create Playlist", new_playlist_path, class: "mt-4 py-2 px-3 bg-accent-200 text-center rounded-md hover:bg-accent-700" %>
     <% else %>
       <ul>
-        <%= current_user.playlists.each do |playlist| %>
-          <li><%= link_to playlist.name, "/"  %></li>
+        <% current_user.playlists&.where&.not(id: nil).each do |playlist| %>
+          <li><%= link_to playlist.name, playlist_path(playlist), class: "hover:text-accent-200" %></li>
         <% end %>
       </ul>
     <% end %>
