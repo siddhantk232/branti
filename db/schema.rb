@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_25_171427) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_05_111104) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_171427) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "album_id"
+    t.boolean "published", default: false
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
@@ -81,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_171427) do
     t.string "provider"
     t.string "uid"
     t.jsonb "avatar_data"
+    t.boolean "is_admin", default: false
     t.index ["avatar_data"], name: "index_users_on_avatar_data", using: :gin
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

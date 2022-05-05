@@ -6,6 +6,7 @@
 #  color            :string           not null
 #  cover_image_data :text
 #  music_file_data  :text             not null
+#  published        :boolean          default(FALSE)
 #  title            :string           not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

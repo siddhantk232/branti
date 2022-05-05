@@ -20,7 +20,7 @@
           </a>
           <div data-profile-badge-target="menu" class="hidden absolute left-full bottom-0 z-10 min-w-[100px] w-full bg-gray-700 text-base z-50 p-1 list-none divide-y divide-gray-100 rounded shadow my-2" id="dropdown">
               <ul aria-labelledby="dropdown">
-                <% if song.artist_id == current_user.id %>
+                <% if current_user && song.artist_id == current_user.id %>
                   <li><%= link_to "Edit", edit_music_path(song), class: "text-sm hover:bg-gray-600 text-white block px-4 py-2" %></li>
                 <% end %>
                 <li>

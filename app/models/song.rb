@@ -6,6 +6,7 @@
 #  color            :string           not null
 #  cover_image_data :text
 #  music_file_data  :text             not null
+#  published        :boolean          default(FALSE)
 #  title            :string           not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -31,7 +32,7 @@ class Song < ApplicationRecord
   has_and_belongs_to_many :playlists
   has_and_belongs_to_many :genres
 
-  scope :latest, -> { order id: :desc }
+  scope :latest, -> { where(published: true).order(updated_at: :desc) }
 
   include CoverImage
   include SongUploader::Attachment(:music_file)

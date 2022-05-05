@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'moderation/index'
+  patch 'moderation/update/:id', to: "moderation#update"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :albums

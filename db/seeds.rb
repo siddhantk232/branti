@@ -116,7 +116,8 @@ songs = [
     album: albums[0],
     artist: primeagen,
     cover_image: File.open("storage/assets/song_1.webp"),
-    music_file: File.open("storage/music/edm/k3rn3lp4n1x__-_gruvbox_(_the_primeagen_theme_song_).webm")
+    music_file: File.open("storage/music/edm/k3rn3lp4n1x__-_gruvbox_(_the_primeagen_theme_song_).webm"),
+    published: true
   },
   {
     title: "She wants me dead",
@@ -124,7 +125,8 @@ songs = [
     album: albums[3],
     artist: nc,
     cover_image: File.open("storage/assets/song_2.webp"),
-    music_file: File.open("storage/music/edm/nightcore_-_she_wants_me_dead.webm")
+    music_file: File.open("storage/music/edm/nightcore_-_she_wants_me_dead.webm"),
+    published: true
   },
   {
     title: "Empty Love",
@@ -132,7 +134,8 @@ songs = [
     album: albums[1],
     artist: tt,
     cover_image: File.open("storage/assets/song_3.webp"),
-    music_file: File.open("storage/music/edm/the_tech_thieves_-_empty_love.webm")
+    music_file: File.open("storage/music/edm/the_tech_thieves_-_empty_love.webm"),
+    published: true
   },
   {
     title: "Low",
@@ -140,7 +143,8 @@ songs = [
     album: albums[1],
     artist: tt,
     cover_image: File.open("storage/assets/song_4.webp"),
-    music_file: File.open("storage/music/edm/the_tech_thieves_-_low.webm")
+    music_file: File.open("storage/music/edm/the_tech_thieves_-_low.webm"),
+    published: true
   },
   # pop
   {
@@ -149,7 +153,8 @@ songs = [
     album: albums[3],
     artist: testuser,
     cover_image: File.open("storage/assets/song_5.webp"),
-    music_file: File.open("storage/music/pop/aja_-_red_button.webm")
+    music_file: File.open("storage/music/pop/aja_-_red_button.webm"),
+    published: true
   },
   {
     title: "Love Me",
@@ -157,8 +162,8 @@ songs = [
     album: albums[3],
     artist: testuser,
     cover_image: File.open("storage/assets/song_6.webp"),
-    music_file: File.open("storage/music/pop/kloud_-_love_me_(feat._gabriel_paris).webm")
-
+    music_file: File.open("storage/music/pop/kloud_-_love_me_(feat._gabriel_paris).webm"),
+    published: true
   },
   {
     title: "Midnight",
@@ -166,7 +171,8 @@ songs = [
     album: albums[3],
     artist: testuser,
     cover_image: File.open("storage/assets/song_7.webp"),
-    music_file: File.open("storage/music/pop/midnight.webm")
+    music_file: File.open("storage/music/pop/midnight.webm"),
+    published: true
   },
   {
     title: "Monster Truck",
@@ -174,7 +180,8 @@ songs = [
     album: albums[2],
     artist: tc,
     cover_image: File.open("storage/assets/song_8.webp"),
-    music_file: File.open("storage/music/pop/monster_truck_(don't_touch_my).webm")
+    music_file: File.open("storage/music/pop/monster_truck_(don't_touch_my).webm"),
+    published: true
   },
   {
     title: "Yellow Black Blue",
@@ -182,7 +189,8 @@ songs = [
     album: albums[3],
     artist: testuser,
     cover_image: File.open("storage/assets/song_9.webp"),
-    music_file: File.open("storage/music/pop/nina_chuba_-_yellow_black_blue.webm")
+    music_file: File.open("storage/music/pop/nina_chuba_-_yellow_black_blue.webm"),
+    published: true
   },
   {
     title: "Taste of You",
@@ -190,7 +198,8 @@ songs = [
     album: albums[3],
     artist: testuser,
     cover_image: File.open("storage/assets/song_10.webp"),
-    music_file: File.open("storage/music/pop/rezz_-_taste_of_you_(ft._dove_cameron).webm")
+    music_file: File.open("storage/music/pop/rezz_-_taste_of_you_(ft._dove_cameron).webm"),
+    published: true
   },
   # indie
   {
@@ -199,7 +208,8 @@ songs = [
     album: albums[2],
     artist: tc,
     cover_image: File.open("storage/assets/song_11.webp"),
-    music_file: File.open("storage/music/indie/fruit_salad.webm")
+    music_file: File.open("storage/music/indie/fruit_salad.webm"),
+    published: true
   },
   {
     title: "Harder, Better, Faster, Stronger",
@@ -207,7 +217,8 @@ songs = [
     album: albums[3],
     artist: testuser,
     cover_image: File.open("storage/assets/song_12.webp"),
-    music_file: File.open("storage/music/indie/harder,_better,_faster,_stronger_-_daft_punk.webm")
+    music_file: File.open("storage/music/indie/harder,_better,_faster,_stronger_-_daft_punk.webm"),
+    published: false
   },
   {
     title: "H.Y.C.Y.BH",
@@ -215,7 +226,8 @@ songs = [
     album: albums[2],
     artist: tc,
     cover_image: File.open("storage/assets/song_13.webp"),
-    music_file: File.open("storage/music/indie/h.y.c.y.bh.webm")
+    music_file: File.open("storage/music/indie/h.y.c.y.bh.webm"),
+    published: false
   },
   {
     title: "I don't know",
@@ -223,7 +235,8 @@ songs = [
     album: albums[1],
     artist: tt,
     cover_image: File.open("storage/assets/song_14.webp"),
-    music_file: File.open("storage/music/indie/the_tech_thieves_-_i_don't_know.webm")
+    music_file: File.open("storage/music/indie/the_tech_thieves_-_i_don't_know.webm"),
+    published: true
   },
   {
     title: "On my own",
@@ -231,7 +244,8 @@ songs = [
     album: albums[1],
     artist: tt,
     cover_image: File.open("storage/assets/song_15.webp"),
-    music_file: File.open("storage/music/indie/the_tech_thieves_-_on_my_own.webm")
+    music_file: File.open("storage/music/indie/the_tech_thieves_-_on_my_own.webm"),
+    published: true
   },
   {
     title: "What's Love",
@@ -239,7 +253,8 @@ songs = [
     album: albums[1],
     artist: tt,
     cover_image: File.open("storage/assets/song_16.webp"),
-    music_file: File.open("storage/music/indie/the_tech_thieves_-_what's_love.webm")
+    music_file: File.open("storage/music/indie/the_tech_thieves_-_what's_love.webm"),
+    published: true
   },
   # bolly
   {
@@ -248,7 +263,8 @@ songs = [
     album: albums[4],
     artist: cs,
     cover_image: File.open("storage/assets/song_17.webp"),
-    music_file: File.open("storage/music/bolly/coke_studio___season_14___thagyan___zain_zohaib_x_quratulain_balouch.webm")
+    music_file: File.open("storage/music/bolly/coke_studio___season_14___thagyan___zain_zohaib_x_quratulain_balouch.webm"),
+    published: true
   },
   {
     title: "Tajdar-e-haram",
@@ -256,7 +272,8 @@ songs = [
     album: albums[4],
     artist: cs,
     cover_image: File.open("storage/assets/song_18.webp"),
-    music_file: File.open("storage/music/bolly/coke_studio_season_8__tajdar-e-haram__atif_aslam.webm")
+    music_file: File.open("storage/music/bolly/coke_studio_season_8__tajdar-e-haram__atif_aslam.webm"),
+    published: true
   },
   {
     title: "Teri Yaadon Mein",
@@ -264,7 +281,8 @@ songs = [
     album: albums[3],
     artist: testuser,
     cover_image: File.open("storage/assets/song_19.webp"),
-    music_file: File.open("storage/music/bolly/teri_yaadon_mein_-_the__killer_.webm")
+    music_file: File.open("storage/music/bolly/teri_yaadon_mein_-_the__killer_.webm"),
+    published: true
   }
 ]
 
