@@ -34,3 +34,7 @@
 
   <%= link_to "Create Album", new_album_path, class: "mt-4 py-2 px-3 bg-accent-200 rounded-md hover:bg-accent-700" %>
 <% end %>
+
+<% if @albums.present? && @albums[0].songs.present? %>
+  <%= render "components/player", song: @albums[0].songs[0] %>
+<% end %>

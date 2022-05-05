@@ -2,3 +2,10 @@
   <%= @album.name %>
 </h3>
 
+<div class="grid grid-cols-4 gap-y-4">
+  <% @album.songs.latest.each do |song| %>
+    <%= render "music/card", song: song %>
+  <% end %>
+</div>
+
+<%= render "components/player", song: @album.songs[0] %>
