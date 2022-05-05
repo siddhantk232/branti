@@ -2,19 +2,34 @@
   <%= button_to music_path(song),
     method: :get,
     data: { turbo_frame: "video" },
-    class: "rounded-lg w-72 h-72",
+    class: "relative rounded-lg w-72 h-72",
     style: "background: no-repeat center/cover url(#{song.cover_image_url});" do %> 
     <div 
       class="h-full w-full gradient relative rounded-lg"
       style="--gradient-from-color: <%= hex_color_to_rgba(song.color, 0.67) %>; --gradient-to-color: <%= hex_color_to_rgba("#000000", 0.2) %>;"
     >
-    <div class="w-full p-4 absolute bottom-0 text-lg font-medium rounded-b-lg" style="background-color: <%= song.color %>;">
-      <p class="overflow-hidden whitespace-nowrap text-ellipsis">
-      <abbr class="no-underline border-none" style="color: <%= text_color_from_bg(song.color) %>;" title="<%= song.title %>">
-        <%= song.title %>
-      </abbr>
-      </p>
-    </div>
+      <div class="w-full p-4 absolute bottom-0 text-lg font-medium rounded-b-lg" style="background-color: <%= song.color %>;">
+        <div class="flex items-center justify-between relative" data-controller="profile-badge">
+          <p class="overflow-hidden whitespace-nowrap text-ellipsis">
+            <abbr class="no-underline border-none" style="color: <%= text_color_from_bg(song.color) %>;" title="<%= song.title %>">
+              <%= song.title %>
+            </abbr>
+          </p>
+          <a class="cursor-pointer" data-action="click->profile-badge#click">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="<%= text_color_from_bg(song.color) %>" d="M12 20Q11.175 20 10.588 19.413Q10 18.825 10 18Q10 17.175 10.588 16.587Q11.175 16 12 16Q12.825 16 13.413 16.587Q14 17.175 14 18Q14 18.825 13.413 19.413Q12.825 20 12 20ZM12 14Q11.175 14 10.588 13.412Q10 12.825 10 12Q10 11.175 10.588 10.587Q11.175 10 12 10Q12.825 10 13.413 10.587Q14 11.175 14 12Q14 12.825 13.413 13.412Q12.825 14 12 14ZM12 8Q11.175 8 10.588 7.412Q10 6.825 10 6Q10 5.175 10.588 4.588Q11.175 4 12 4Q12.825 4 13.413 4.588Q14 5.175 14 6Q14 6.825 13.413 7.412Q12.825 8 12 8Z"/></svg>
+          </a>
+          <div data-profile-badge-target="menu" class="hidden absolute left-full bottom-0 z-10 min-w-[100px] w-full bg-gray-700 text-base z-50 p-1 list-none divide-y divide-gray-100 rounded shadow my-2" id="dropdown">
+              <ul aria-labelledby="dropdown">
+                <% if song.artist_id == current_user.id %>
+                  <li><%= link_to "Edit", edit_music_path(song), class: "text-sm hover:bg-gray-600 text-white block px-4 py-2" %></li>
+                <% end %>
+                <li>
+                  <a class="text-sm hover:bg-gray-600 text-white block px-4 py-2">Add to Playlist</a>
+                </li>
+              </ul>
+           </div>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

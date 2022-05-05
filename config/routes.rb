@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :albums
   resources :playlists
   resources :genres
-  resources :music, only: [ :index, :new, :create, :show ]
+  resources :music
 
   root "music#index"
 

@@ -7,8 +7,8 @@ export default class extends Controller {
   connect() {
   }
 
-  click() {
-    console.log("called");
+  click(e) {
+    e.preventDefault();
     this.menuTarget.classList.toggle("hidden");
   }
 }
