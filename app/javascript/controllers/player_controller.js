@@ -12,15 +12,12 @@ export default class extends Controller {
   ];
 
   connect() {
-    console.log(this.videoTarget);
   }
 
   previous() {
-    console.log("prev");
   }
 
   next() {
-    console.log("next");
   }
 
   playPause() {
@@ -71,8 +68,6 @@ export default class extends Controller {
   seek(e) {
     // TODO: convert range 0 - bar.clientWidth to 0 - video.duration
     const length = e.clientX - this.barTarget.parentElement.getBoundingClientRect().left;
-    console.log(this.getTimeFromBarLength(length));
-    console.log(this.videoTarget.currentTime);
   }
 
   getTime() {
