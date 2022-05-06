@@ -8,7 +8,6 @@
       <div>
         <%= button_to album_path(album),
           method: :get,
-          data: { turbo_frame: "video" },
           class: "rounded-lg w-72 h-72",
           style: "background: no-repeat center/cover url(#{album.cover_image_url});" do %> 
           <div 

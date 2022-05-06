@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :albums
   resources :playlists
+  post "/playlists/add", to: "playlists#add"
   resources :genres
   resources :music
 

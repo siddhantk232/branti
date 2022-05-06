@@ -1,3 +1,17 @@
 <h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
   <%= @playlist.name %>
 </h3>
+
+<div class="grid grid-cols-4 gap-y-4">
+  <% @playlist.songs.latest.each do |song| %>
+    <%= render "music/card", song: song %>
+  <% end %>
+</div>
+
+<% if @playlist.songs.present? %>
+  <%= render "components/player", song: @playlist.songs[0] %>
+<% else %>
+  <p class="text-grey-50 mb-4">
+    No songs here.
+  </p>
+<% end %>

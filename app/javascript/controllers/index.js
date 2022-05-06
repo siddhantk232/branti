@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ModalController from "./modal_controller.js"
+application.register("modal", ModalController)
+
 import PlayerController from "./player_controller.js"
 application.register("player", PlayerController)
 

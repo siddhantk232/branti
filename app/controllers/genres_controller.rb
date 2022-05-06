@@ -8,6 +8,7 @@ class GenresController < ApplicationController
   end
 
   def show
+    @playlists = current_user.playlists
   end
 
   def new

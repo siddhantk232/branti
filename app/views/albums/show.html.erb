@@ -8,4 +8,10 @@
   <% end %>
 </div>
 
-<%= render "components/player", song: @album.songs[0] %>
+<% if @album.songs.present? %>
+  <%= render "components/player", song: @album.songs[0] %>
+<% else %>
+  <p class="text-grey-50 mb-4">
+    No songs here.
+  </p>
+<% end %>
