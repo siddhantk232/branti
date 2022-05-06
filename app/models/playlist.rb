@@ -5,6 +5,7 @@
 #  id               :bigint           not null, primary key
 #  color            :string           not null
 #  cover_image_data :text
+#  is_public        :boolean          default(FALSE)
 #  name             :string           not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -23,6 +24,8 @@ class Playlist < ApplicationRecord
 
   belongs_to :user
   has_and_belongs_to_many :songs
+
+  scope :top, -> { where(is_public: true).order(updated_at: :desc) }
 
   include CoverImage
 end

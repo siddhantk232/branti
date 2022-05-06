@@ -1,11 +1,13 @@
-<h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
-  <%= @genre.title %>
-</h3>
+<div class="py-4 px-6 mb-6">
+  <h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
+    <%= @genre.title %>
+  </h3>
 
-<div class="grid grid-cols-4 gap-y-4">
-  <% @genre.songs.latest.each do |song| %>
-    <%= render "music/card", song: song %>
-  <% end %>
+  <div class="grid grid-cols-4 gap-y-4">
+    <% @genre.songs.latest.each do |song| %>
+      <%= render "music/card", song: song %>
+    <% end %>
+  </div>
 </div>
 
 <%= render "components/player", song: @genre.songs[0] %>

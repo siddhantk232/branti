@@ -16,12 +16,12 @@
     <ul>
       <li><%= link_to "Albums", albums_path, class: "hover:text-accent-200" %></li>
       <li><%= link_to "Genres", genres_path, class: "hover:text-accent-200" %></li>
-      <li><%= link_to "Liked Song", "/playlists?type=likes", class: "hover:text-accent-200" %></li>
+      <li><%= link_to "Public Playlists", "/playlists?type=public", class: "hover:text-accent-200" %></li>
     </ul>
   </div>
   <div>
     <div class="mb-3 flex justify-between items-center">
-      <h4 class="font-rowdies text-3xl text-accent-400 font-bold">Playlists</h4>
+      <%= link_to "Playlists", playlists_path, class: "font-rowdies text-3xl text-accent-400 font-bold" %>
       <%= link_to "+", new_playlist_path, class: "text-4xl py-2 px-3 text-center text-accent-400 rounded-md hover:scale-110" %>
     </div>
 

@@ -1,0 +1,31 @@
+<% if playlists.present? %>
+  <div class="flex space-x-8 scrollable bar pb-2">
+    <% playlists.each do |playlist| %>
+      <div>
+        <%= button_to playlist_path(playlist),
+          method: :get,
+          class: "rounded-lg w-72 h-72",
+          style: "background: no-repeat center/cover url(#{playlist.cover_image_url});" do %> 
+          <div 
+            class="h-full w-full gradient relative rounded-lg"
+            style="--gradient-from-color: <%= hex_color_to_rgba(playlist.color, 0.67) %>; --gradient-to-color: <%= hex_color_to_rgba("#000000", 0.2) %>;"
+          >
+          <div class="w-full p-4 absolute bottom-0 text-lg font-medium rounded-b-lg" style="background-color: <%= playlist.color %>;">
+            <p class="overflow-hidden whitespace-nowrap text-ellipsis">
+            <abbr class="no-underline border-none" style="color: <%= text_color_from_bg(playlist.color) %>;" title="<%= playlist.name %>">
+              <%= playlist.name %>
+            </abbr>
+            </p>
+          </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-grey-50 mb-4">
+    You don't have any playlists at this moment.
+  </p>
+
+  <%= link_to "Create Playlist", new_playlist_path, class: "mt-4 py-2 px-3 bg-accent-200 rounded-md hover:bg-accent-700" %>
+<% end %>

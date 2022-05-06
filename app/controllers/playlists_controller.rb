@@ -1,9 +1,14 @@
 class PlaylistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_playlist, only: %i[ show edit destroy ]
+  before_action :set_playlist, only: %i[ show edit destroy update ]
 
   def index
-    @playlists = current_user.playlists
+    if params["type"] == "public"
+      @playlists = Playlist.top
+      render :top
+    else
+      @playlists = current_user.playlists
+    end
   end
 
   def show
@@ -38,7 +43,7 @@ class PlaylistsController < ApplicationController
   def update
     @playlist.update(playlist_params)
 
-    redirect_to root_path
+    redirect_to playlist_path(@playlist), notice: "Updated successfully"
   end
 
   def add
@@ -68,7 +73,7 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:color, :name, :cover_image)
+    params.require(:playlist).permit(:color, :name, :cover_image, :is_public)
   end
 
   def playlist_add_params

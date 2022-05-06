@@ -10,5 +10,8 @@ application.register("modal", ModalController)
 import PlayerController from "./player_controller.js"
 application.register("player", PlayerController)
 
+import PlaylistController from "./playlist_controller.js"
+application.register("playlist", PlaylistController)
+
 import ProfileBadgeController from "./profile_badge_controller.js"
 application.register("profile-badge", ProfileBadgeController)
