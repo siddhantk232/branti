@@ -4,6 +4,13 @@
   </h3>
 
   <%= render "playlists", playlists: @playlists %>
+  <% unless @playlists.present? %>
+    <p class="text-grey-50 mb-4">
+      You don't have any albums at this moment.
+    </p>
+
+    <%= link_to "Create Playlist", new_playlist_path, class: "mt-4 py-2 px-3 bg-accent-200 rounded-md hover:bg-accent-700" %>
+  <% end %>
 </div>
 
 <% if @playlists.present? && @playlists[0].songs.present? %>
