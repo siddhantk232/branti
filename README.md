@@ -51,5 +51,7 @@
   - [x] add avatar to User
   - [x] implement file upload (music and images)
   - [x] music upload
-  - [ ] serve/stream music
+  - [x] serve/stream music
+  - [x] ui pages/forms
+  - [x] javascript based music player
 
