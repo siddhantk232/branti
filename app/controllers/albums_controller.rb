@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @playlists = current_user.playlists
+    @playlists = current_user.playlists if current_user.present?
   end
 
   def new

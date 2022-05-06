@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user!, only: %i[ edit destroy ]
   before_action :set_genre, only: %i[ show edit destroy ]
 
@@ -8,7 +8,7 @@ class GenresController < ApplicationController
   end
 
   def show
-    @playlists = current_user.playlists
+    @playlists = current_user.playlists if current_user.present?
   end
 
   def new
