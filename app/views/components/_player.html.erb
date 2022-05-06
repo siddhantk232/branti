@@ -1,0 +1,46 @@
+  <%= turbo_frame_tag "video" do %>
+    <section data-controller="player" class="fixed bottom-0 left-0 w-screen bg-dark drop-shadow-lg">
+        <video data-action="timeupdate->player#setTime durationchange->player#setDuration" data-player-target="video" class="hidden" src="<%= song.music_file_url %>"></video>
+        <div data-player-target="seekerParent" data-action="click->player#seek" class="range bg-gray-600 bg-[#303030] w-full h-1 cursor-pointer">
+          <div data-player-target="bar" class="primary-range bg-accent-400 h-full" style="width: 0px"></div>
+        </div>
+        <div class="px-16 py-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img class="object-contain mr-4 h-20 w-20" src="<%= song.cover_image_url %>" alt="">
+            <div class="meta">
+              <h5 class="font-bold text-md"><%= song.title %></h5>
+              <p class="text-gray-200 text-sm"><%= song.artist.name %></p>
+              <p data-player-target="timer" class="text-gray-200 text-sm"></p>
+            </div>
+          </div>
+          <div class="player-controls flex">
+            <button data-action="click->player#previous" class="prev">
+              <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path fill="#fff" d="M11 36V12H14V36ZM37 36 19.7 24 37 12ZM34 24ZM34 30.25V17.75L24.95 24Z"/></svg>
+            </button>
+            <button data-player-target="playButton" data-action="click->player#playPause" class="play">
+              <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path fill="#fff" d="M19.15 32.5 32.5 24 19.15 15.5ZM24 44Q19.9 44 16.25 42.425Q12.6 40.85 9.875 38.125Q7.15 35.4 5.575 31.75Q4 28.1 4 24Q4 19.9 5.575 16.25Q7.15 12.6 9.875 9.875Q12.6 7.15 16.25 5.575Q19.9 4 24 4Q28.1 4 31.75 5.575Q35.4 7.15 38.125 9.875Q40.85 12.6 42.425 16.25Q44 19.9 44 24Q44 28.1 42.425 31.75Q40.85 35.4 38.125 38.125Q35.4 40.85 31.75 42.425Q28.1 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31 41 36 36Q41 31 41 24Q41 17 36 12Q31 7 24 7Q17 7 12 12Q7 17 7 24Q7 31 12 36Q17 41 24 41Z"/></svg>
+            </button>
+            <button data-action="click->player#next" class="next">
+              <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path fill="#fff" d="M34 36V12H37V36ZM11 36V12L28.3 24ZM14 24ZM14 30.25 23.05 24 14 17.75Z"/></svg>
+            </button>
+          </div>
+
+          <div class="flex items-center">
+            <button data-action="click->player#mute" data-player-target="volumeIcon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path fill="#fff" d="M23.333 34.542V31.667Q27.292 30.542 29.75 27.312Q32.208 24.083 32.208 19.958Q32.208 15.833 29.75 12.583Q27.292 9.333 23.333 8.25V5.375Q28.5 6.542 31.75 10.604Q35 14.667 35 19.958Q35 25.25 31.75 29.312Q28.5 33.375 23.333 34.542ZM5 25V15H11.667L20 6.667V33.333L11.667 25ZM22.792 26.875V13.042Q24.917 13.833 26.208 15.75Q27.5 17.667 27.5 20Q27.5 22.375 26.208 24.25Q24.917 26.125 22.792 26.875ZM17.208 13.583 12.875 17.792H7.792V22.208H12.875L17.208 26.458ZM13.208 20Z"/></svg>
+            </button>
+            <input
+              data-action="input->player#handleVolume"
+              data-player-target="volume"
+              class="ml-1"
+              type="range"
+              min="0"
+              max="1"
+              step="0.05"
+            />
+          </div>
+        </div>
+        </div>
+    </section>
+  <% end %>

@@ -6,6 +6,7 @@
 #  avatar_data            :jsonb
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  is_admin               :boolean          default(FALSE)
 #  name                   :string           not null
 #  provider               :string
 #  remember_created_at    :datetime

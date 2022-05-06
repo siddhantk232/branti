@@ -1,0 +1,22 @@
+<div class="py-4 px-6 mb-6">
+  <h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
+    Search Results for <%= @param %>
+  </h3>
+
+  <div class="flex space-x-8 scrollable bar pb-2">
+    <% @songs.each do |song| %>
+      <%= render "music/card", song: song %>
+    <% end %>
+  </div>
+
+  <% unless @songs.present? %>
+    <p class="text-grey-50 mb-4">
+      No search results found.
+    </p>
+  <% end %>
+</div>
+
+<% if @songs.present? %>
+  <%= render "components/player", song: @songs[0] %>
+<% end %>
+

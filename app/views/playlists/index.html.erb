@@ -1,7 +1,18 @@
-<h1>Your Playlists</h1>
+<div class="py-4 px-6 mb-6">
+  <h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
+    Your Playlists
+  </h3>
 
-<ul>
-  <% @playlists.each do |playlist| %>
-    <li><%= link_to playlist.title, playlist_path(playlist) %></li>
+  <%= render "playlists", playlists: @playlists %>
+  <% unless @playlists.present? %>
+    <p class="text-grey-50 mb-4">
+      You don't have any albums at this moment.
+    </p>
+
+    <%= link_to "Create Playlist", new_playlist_path, class: "mt-4 py-2 px-3 bg-accent-200 rounded-md hover:bg-accent-700" %>
   <% end %>
-</ul>
+</div>
+
+<% if @playlists.present? && @playlists[0].songs.present? %>
+  <%= render "components/player", song: @playlists[0].songs[0] %>
+<% end %>

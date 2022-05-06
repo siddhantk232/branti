@@ -1,16 +1,18 @@
 <h2>Forgot your password?</h2>
 
+<div class="w-5/12">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, class: "mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions", class: "mt-4 mb-2 text-black cursor-pointer rounded-lg bg-white hover:bg-gray-200 focus:ring-4 focus:ring-blue-300 text-sm px-4 py-2.5 text-center inline-flex items-center" %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>

@@ -1,0 +1,43 @@
+<div class="py-4 px-6 mb-6">
+  <h3 class="mb-6 font-rowdies text-4xl text-accent-400 font-bold">
+    Approve Songs
+  </h3>
+
+  <% if @songs.present? %>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Title
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        <span class="sr-only">Actions</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+              <% @songs.each do |song| %>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                      <%= button_to song.title, music_path(song), method: :get, data: { turbo_frame: "video" }, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
+                    </th>
+                    <td class="px-6 py-4 text-right">
+                      <%= button_to "Approve", "/moderation/update/#{song.id}", method: :patch, class: "font-medium text-red-600 dark:text-red-500 hover:underline" %>
+                    </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+    </div>
+  <% else %>
+    <p class="text-grey-50 mb-4">
+      All songs are approved!
+    </p>
+  <% end %>
+</div>
+
+<% if @songs.present? %>
+  <%= render "components/player", song: @songs[0] %>
+<% end %>
+

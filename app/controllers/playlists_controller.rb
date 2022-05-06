@@ -1,12 +1,18 @@
 class PlaylistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_playlist, only: %i[ show edit destroy ]
+  before_action :set_playlist, only: %i[ show edit destroy update ]
 
   def index
-    @playlists = current_user.playlists
+    if params["type"] == "public"
+      @playlists = Playlist.top
+      render :top
+    else
+      @playlists = current_user.playlists
+    end
   end
 
   def show
+    @playlists = current_user.playlists
   end
 
   def new
@@ -21,7 +27,7 @@ class PlaylistsController < ApplicationController
     if @playlist.save
       redirect_to root_path
     else
-      render :new, notice: "Failed to create playlist #{@playlist.title}"
+      render :new, notice: "Failed to create playlist"
     end
   end
 
@@ -37,7 +43,26 @@ class PlaylistsController < ApplicationController
   def update
     @playlist.update(playlist_params)
 
-    redirect_to root_path
+    redirect_to playlist_path(@playlist), notice: "Updated successfully"
+  end
+
+  def add
+    @playlist = current_user.playlists.find(playlist_add_params["playlist_id"])
+
+    begin
+      @playlist.songs.find(playlist_add_params["song_id"])
+      redirect_to root_path 
+    rescue
+      @song = Song.find(playlist_add_params["song_id"])
+
+      @playlist.songs << @song
+
+      if @playlist.save 
+        redirect_to root_path, notice: "Song added!"
+      else
+        redirect_to root_path, notice: "Couldn't add this song"
+      end
+    end
   end
 
 
@@ -48,6 +73,10 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:color, :name, :cover_image)
+    params.require(:playlist).permit(:color, :name, :cover_image, :is_public)
+  end
+
+  def playlist_add_params
+    params.require(:playlists_songs).permit(:song_id, :playlist_id)
   end
 end

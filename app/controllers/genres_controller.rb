@@ -1,6 +1,6 @@
 class GenresController < ApplicationController
-  before_action :authenticate_user!
-  # TODO: restricted to admins only
+  before_action :authenticate_user!, except: %i[ index show ]
+  before_action :authorize_user!, only: %i[ edit destroy ]
   before_action :set_genre, only: %i[ show edit destroy ]
 
   def index
@@ -8,6 +8,7 @@ class GenresController < ApplicationController
   end
 
   def show
+    @playlists = current_user.playlists if current_user.present?
   end
 
   def new
@@ -48,5 +49,9 @@ class GenresController < ApplicationController
 
   def genre_params
     params.require(:genre).permit(:color, :title, :cover_image)
+  end
+
+  def authorize_user!
+    redirect_to root_path unless current_user.is_admin
   end
 end

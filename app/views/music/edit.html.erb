@@ -1,0 +1,5 @@
+<h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
+  Edit "<%= @song.title %>"
+</h3>
+
+<%= render "form", song: @song, url: music_path(@song) %>
