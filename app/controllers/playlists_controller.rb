@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_playlist, only: %i[ show edit destroy update ]
+  before_action :set_playlist, only: %i[ edit destroy update ]
 
   def index
     if params["type"] == "public"
@@ -13,6 +13,7 @@ class PlaylistsController < ApplicationController
 
   def show
     @playlists = current_user.playlists
+    @playlist = Playlist.where(id: params[:id], is_public: true).first
   end
 
   def new

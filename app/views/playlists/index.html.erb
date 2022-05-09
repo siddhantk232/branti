@@ -1,7 +1,12 @@
 <div class="py-4 px-6 mb-6">
-  <h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold">
-    Your Playlists
-  </h3>
+  <div class="flex items-center">
+    <h3 class="mb-3 font-rowdies text-4xl text-accent-400 font-bold mr-2">
+      Your Playlists
+    </h3>
+    <%= link_to new_playlist_path do %>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="#ee6c4d" d="M11 19V13H5V11H11V5H13V11H19V13H13V19Z"/></svg>
+    <% end %>
+  </div>
 
   <%= render "playlists", playlists: @playlists %>
   <% unless @playlists.present? %>

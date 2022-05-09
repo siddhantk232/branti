@@ -22,7 +22,9 @@
   <div>
     <div class="mb-3 flex justify-between items-center">
       <%= link_to "Playlists", playlists_path, class: "font-rowdies text-3xl text-accent-400 font-bold" %>
-      <%= link_to "+", new_playlist_path, class: "text-4xl py-2 px-3 text-center text-accent-400 rounded-md hover:scale-110" %>
+      <%= link_to new_playlist_path, class: "text-4xl py-2 px-3 text-center text-accent-400 rounded-md hover:scale-110" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="#ee6c4d" d="M11 19V13H5V11H11V5H13V11H19V13H13V19Z"/></svg>
+      <% end %>
     </div>
 
     <% unless current_user&.playlists&.where&.not(id: nil).present? %>
